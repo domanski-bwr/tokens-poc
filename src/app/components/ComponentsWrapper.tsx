@@ -12,7 +12,9 @@ const wrapperBoxStyle: SxProps = {
 export function ComponentsWrapper() {
   return (
     <Box sx={wrapperBoxStyle}>
-      <Button>Button</Button>
+      <Button variant='contained' size='medium'>
+        Button
+      </Button>
       <TextField />
     </Box>
   )
