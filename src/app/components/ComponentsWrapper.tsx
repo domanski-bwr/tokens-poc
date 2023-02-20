@@ -1,4 +1,5 @@
-import { Button, TextField, Box, SxProps } from '@mui/material'
+import { Button, TextField, Box, SxProps, InputAdornment } from '@mui/material'
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 import React from 'react'
 
 const wrapperBoxStyle: SxProps = {
@@ -15,7 +16,16 @@ export function ComponentsWrapper() {
       <Button variant='contained' size='medium'>
         Button
       </Button>
-      <TextField helperText='Comments' />
+      <TextField
+        helperText='Comments'
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position='start'>
+              <SearchOutlinedIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
     </Box>
   )
 }

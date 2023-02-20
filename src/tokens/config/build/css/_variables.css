@@ -1,9 +1,16 @@
 /**
  * Do not edit directly
- * Generated on Mon, 20 Feb 2023 09:52:50 GMT
+ * Generated on Mon, 20 Feb 2023 14:41:36 GMT
  */
 
 :root {
   --sd-textfield-width: 280px;
   --sd-textfield-height: 48px;
+  --sd-textfield-padding: 0px 16px;
+  --sd-textfield-main-black: #29252F;
+  --sd-textfield-main-color: #34809C;
+  --sd-textfield-main-grey: #959595;
+  --sd-textfield-main-red: #DD1C1C;
+  --sd-textfield-main-disabled: #BABABA;
+  --sd-textfield-default-border-radius: 5px;
 }

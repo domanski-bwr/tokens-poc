@@ -23,5 +23,24 @@ export const theme = createTheme({
     //     }),
     //   },
     // },
+    MuiTextField: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          // width: getCssVarByName('--sd-textfield-width'),
+          // height: getCssVarByName('--sd-textfield-height'),
+          // padding: getCssVarByName('--sd-textfield-padding'),
+          border: 'solid 1px red',
+        }),
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          width: getCssVarByName('--sd-textfield-width'),
+          height: getCssVarByName('--sd-textfield-height'),
+          padding: getCssVarByName('--sd-textfield-padding'),
+        }),
+      },
+    },
   },
 })
