@@ -1,5 +1,5 @@
 {
-  "source": ["../tokens/**/*.json"],
+  "source": ["../tokens/tokens.json"],
   "platforms": {
     "scss": {
       "transformGroup": "css",
@@ -10,8 +10,7 @@
           "destination": "_variables.css",
           "format": "css/variables"
         }
-      ],
-      "actions": ["copy_assets"]
+      ]
     }
   }
 }

@@ -1,11 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Sun, 19 Feb 2023 13:41:36 GMT
+ * Generated on Mon, 20 Feb 2023 09:52:50 GMT
  */
 
 :root {
-  --sd-button-color-blue: #c41ab1;
-  --sd-button-color-hover: #ec5ac8;
-  --sd-button-default: 16px;
-  --sd-button-defalut: [object Object];
+  --sd-textfield-width: 280px;
+  --sd-textfield-height: 48px;
 }

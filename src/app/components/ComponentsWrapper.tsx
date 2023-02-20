@@ -15,7 +15,7 @@ export function ComponentsWrapper() {
       <Button variant='contained' size='medium'>
         Button
       </Button>
-      <TextField />
+      <TextField helperText='Comments' />
     </Box>
   )
 }
