@@ -4,18 +4,16 @@ import React from 'react'
 
 const wrapperBoxStyle: SxProps = {
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'baseline',
   height: '100vh',
   justifyContent: 'center',
+  padding: '25% 0px',
+  gap: '16px',
 }
 
 export function ComponentsWrapper() {
   return (
     <Box sx={wrapperBoxStyle}>
-      <Button variant='contained' size='medium'>
-        Button
-      </Button>
       <TextField
         helperText='Comments'
         InputProps={{
@@ -26,6 +24,9 @@ export function ComponentsWrapper() {
           ),
         }}
       />
+      <Button variant='contained' size='medium'>
+        Button
+      </Button>
     </Box>
   )
 }
