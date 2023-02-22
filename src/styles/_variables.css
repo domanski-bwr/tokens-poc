@@ -1,0 +1,24 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 21 Feb 2023 06:46:28 GMT
+ */
+
+:root {
+  --textfield-width: 280px;
+  --textfield-height: 48px;
+  --textfield-padding: 0px 16px;
+  --textfield-main-black: #29252F;
+  --textfield-main-color: #34809C;
+  --textfield-main-grey: #959595;
+  --textfield-main-red: #DD1C1C;
+  --textfield-main-disabled: #BABABA;
+  --textfield-border-radius-default: 5px;
+  --textfield-line-height-input: 16px;
+  --textfield-line-height-helper-text: 14px;
+  --textfield-letter-spacing-input: 0.05em;
+  --textfield-letter-spacing-helper-text: 0.1em;
+  --textfield-font-family-roboto: 'Roboto';
+  --textfield-capitalize: capitalize;
+  --textfield-font-size-input: 14px;
+  --textfield-font-size-helper-text: 12px;
+}

@@ -1,5 +1,5 @@
 import 'typeface-roboto'
-import './index.css'
+import '../../styles/index.css'
 
 import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
@@ -8,7 +8,7 @@ import type { Router as RemixRouter } from '@remix-run/router'
 import { Suspense, StrictMode } from 'react'
 import store from '../../state/store'
 import { ThemeProvider } from '@mui/material'
-import { theme } from './theme'
+import { theme } from '../../styles/theme'
 
 interface IAppProps {
   router: RemixRouter

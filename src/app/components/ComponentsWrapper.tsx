@@ -1,6 +1,6 @@
-import { Button, TextField, Box, SxProps, InputAdornment } from '@mui/material'
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
-import React from 'react'
+import { Button, Box, SxProps } from '@mui/material'
+import { useState } from 'react'
+import { CustomTextField } from './TextField/CustomTextField'
 
 const wrapperBoxStyle: SxProps = {
   display: 'flex',
@@ -12,20 +12,17 @@ const wrapperBoxStyle: SxProps = {
 }
 
 export function ComponentsWrapper() {
+  const [disabled, setDisabled] = useState<boolean>(false)
+
+  const toggleDisabled = () => {
+    setDisabled(!disabled)
+  }
+
   return (
     <Box sx={wrapperBoxStyle}>
-      <TextField
-        helperText='Comments'
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position='start'>
-              <SearchOutlinedIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <Button variant='contained' size='medium'>
-        Button
+      <CustomTextField disabled={disabled} helperText='Comments' label='Text field' />
+      <Button variant='contained' size='medium' onClick={toggleDisabled}>
+        {disabled ? 'enable' : 'disable'}
       </Button>
     </Box>
   )
