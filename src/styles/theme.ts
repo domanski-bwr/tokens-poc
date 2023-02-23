@@ -1,4 +1,4 @@
-import { createTheme, InputBaseProps } from '@mui/material'
+import { createTheme, InputBaseProps, TextFieldProps } from '@mui/material'
 import './_variables.css'
 
 // TODO consider fallback and error handling
@@ -12,9 +12,18 @@ export const theme = createTheme({
   components: {
     MuiTextField: {
       styleOverrides: {
-        root: ({ ownerState, theme }) => ({
-          '& .MuiInputLabel-root:not(.MuiInputLabel-shrink)': {
-            transform: 'translate(41px, 17px)',
+        root: ({ ownerState }) => ({
+          '& label.Mui-focused': {
+            color: getCssVarByName(
+              !isDisabled(ownerState as InputBaseProps) ? '--textfield-main-black' : '--textfield-main-grey',
+            ),
+          },
+          '& .MuiOutlinedInput-root': {
+            '&.Mui-focused fieldset': {
+              border: `2px solid ${getCssVarByName(
+                !isDisabled(ownerState as InputBaseProps) ? '--textfield-main-black' : '--textfield-main-disabled',
+              )}`,
+            },
           },
         }),
       },
@@ -33,52 +42,53 @@ export const theme = createTheme({
           }
         },
         input: ({ ownerState, theme }) => ({
+          fontFamily: getCssVarByName('--textfield-font-family-roboto'),
           fontSize: getCssVarByName('--textfield-font-size-input'),
           letterSpacing: getCssVarByName('--textfield-letter-spacing-input'),
           lineHeight: getCssVarByName('--textfield-line-height-input'),
           textTransform: getCssVarByName('--textfield-capitalize') as 'capitalize',
-          fontFamily: getCssVarByName('--textfield-font-family-roboto'),
         }),
       },
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ ownerState, theme }) => ({
-          borderRadius: getCssVarByName('--textfield-border-radius-default'),
-          ':hover': !isDisabled(ownerState)
-            ? {
-                border: `2px solid ${getCssVarByName('--textfield-main-black')}`,
-              }
-            : undefined,
-        }),
         input: ({ ownerState, theme }) => ({
           padding: ' 0px',
         }),
         notchedOutline: ({ ownerState, theme }) => ({
-          // border: `none`,
-          // border: `1px solid ${getCssVarByName(
-          //   !isDisabled(ownerState) ? '--textfield-main-black' : '--textfield-main-disabled',
-          // )}`,
+          border: `1px solid ${getCssVarByName(
+            !isDisabled(ownerState) ? '--textfield-main-black' : '--textfield-main-disabled',
+          )}`,
         }),
       },
     },
     MuiFormHelperText: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
+          color: getCssVarByName('--textfield-main-grey'),
           fontSize: getCssVarByName('--textfield-font-size-helper-text'),
           letterSpacing: getCssVarByName('--textfield-letter-spacing-helper-text'),
           lineHeight: getCssVarByName('--textfield-line-height-helper-text'),
-          color: getCssVarByName('--textfield-main-grey'),
-          padding: '2px 16px',
           margin: 'unset',
+          padding: '2px 16px',
         }),
       },
     },
     MuiInputLabel: {
       styleOverrides: {
-        root: ({ ownerState, theme }) => {
+        root: ({ ownerState, theme }: any) => {
           return {
-            color: !ownerState.shrink ? 'transparent' : 'inherit',
+            color: getCssVarByName(
+              !isDisabled(ownerState as InputBaseProps) ? '--textfield-main-black' : '--textfield-main-grey',
+            ),
+            fontFamily: getCssVarByName('--textfield-font-family-roboto'),
+            fontSize: getCssVarByName('--textfield-font-size-input'),
+            letterSpacing: getCssVarByName('--textfield-letter-spacing-helper-text'),
+            lineHeight: getCssVarByName('--textfield-line-height-input'),
+            ':not(.MuiInputLabel-shrink)': {
+              transform: 'translate(48px, 16px)',
+              letterSpacing: getCssVarByName('--textfield-letter-spacing-input'),
+            },
           }
         },
       },
