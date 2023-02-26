@@ -1,5 +1,6 @@
 import { Button, Box, SxProps } from '@mui/material'
 import { useState } from 'react'
+import { SearchIcon } from '../icons/SearchIcon'
 import { CustomTextField } from './TextField/CustomTextField'
 
 const wrapperBoxStyle: SxProps = {
@@ -23,13 +24,26 @@ export function ComponentsWrapper() {
     setError(error ? '' : 'Error detected')
   }
 
+  const handleChange = () => {
+    if (error) {
+      setError('')
+    }
+  }
+
   return (
     <Box sx={wrapperBoxStyle}>
-      <CustomTextField disabled={disabled} helperText='Comments' label='Text field' error={error} />
+      <CustomTextField
+        disabled={disabled}
+        error={error}
+        helperText='Comments'
+        inputIcon={<SearchIcon />}
+        label='Text field'
+        onChange={handleChange}
+      />
       <Button variant='outlined' size='medium' onClick={toggleDisabled}>
         {disabled ? 'enable' : 'disable'}
       </Button>
-      <Button variant='outlined' size='medium' color='error' onClick={toggleError}>
+      <Button sx={{ width: '125px' }} variant='outlined' size='medium' color='error' onClick={toggleError}>
         {`${error ? 're' : ''}set error`}
       </Button>
     </Box>

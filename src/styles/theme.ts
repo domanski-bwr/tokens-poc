@@ -9,6 +9,11 @@ const isDisabled = (ownerState: InputBaseProps): boolean => {
 }
 
 export const theme = createTheme({
+  palette: {
+    error: {
+      main: getCssVarByName('--textfield-main-red'),
+    },
+  },
   components: {
     MuiTextField: {
       styleOverrides: {
