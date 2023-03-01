@@ -1,124 +1,83 @@
 {
   "repository": "@bw/test",
-  "head": "specify",
-  "base": "main",
+  "personalAccessToken": "4d25e008715c990df349d9192d6439dfa476523a38cf5b8c154b1d9bcefc3ddd",
   "rules": [
     {
-      "name": "Design Tokens / Theme",
-      "path": "./output/styles/theme.js",
+      "name": "Design Tokens / Colors",
+      "path": "./output/styles/colors.css",
       "filter": {
-        "types": [
-          "color",
-          "font",
-          "textStyle"
-        ]
+        "types": ["color"]
       },
       "parsers": [
         {
           "name": "sort-by",
           "options": {
-            "keys": [
-              "name"
-            ]
+            "keys": ["name"]
           }
         },
         {
-          "name": "px-to-rem",
+          "name": "to-css-custom-properties",
           "options": {
-            "keys": [
-              "fontSize"
-            ]
-          }
-        },
-        {
-          "name": "to-theme-ui",
-          "options": {
-            "variants": true,
-            "formatConfig": {
-              "exportDefault": true
-            },
-            "formatTokens": {
-              "colorFormat": {
-                "format": "hsl"
-              },
-              "fontSizeFormat": {
-                "type": "string",
-                "unit": "rem"
-              }
-            },
-            "presets": {
-              "fontWeights": {
-                "preset": "base",
-                "freeze": true
-              }
-            }
+            "formatName": "kebabCase"
           }
         }
       ]
     },
     {
-      "name": "Design Tokens / CSS font imports",
+      "name": "Design Tokens / Text Styles",
+      "path": "./output/styles/text-styles.css",
+      "filter": {
+        "types": ["textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-css-text-style",
+          "options": {
+            "exclude": ["color", "text-indent", "vertical-align", "text-align"],
+            "relativeLineHeight": true,
+            "genericFamily": "serif"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Import font files in CSS",
       "path": "./output/styles/fonts.css",
       "filter": {
-        "types": [
-          "font"
-        ]
+        "types": ["font"]
       },
       "parsers": [
         {
           "name": "to-css-font-import",
           "options": {
-            "formats": [
-              "woff2",
-              "woff"
-            ],
-            "fontsPath": "../assets/fonts"
+            "formats": ["woff", "woff2"],
+            "fontsPath": "../fonts"
           }
         }
       ]
     },
     {
-      "name": "Design Tokens / Export fonts",
-      "path": "./output/assets/fonts",
+      "name": "Design Tokens / Import font files",
+      "path": "./output/fonts",
       "filter": {
-        "types": [
-          "font"
-        ]
+        "types": ["font"]
       },
       "parsers": [
         {
           "name": "convert-font",
           "options": {
-            "formats": [
-              "woff2",
-              "woff"
-            ]
+            "formats": ["woff", "woff2"]
           }
         }
       ]
     },
     {
-      "name": "Icons",
-      "path": "./output/assets/icons",
+      "name": "Design Tokens / Vectors",
+      "path": "./output/vectors",
       "filter": {
-        "types": [
-          "vector"
-        ]
+        "types": ["vector"]
       },
       "parsers": [
-        {
-          "name": "replace-string",
-          "options": {
-            "keys": [
-              "name"
-            ],
-            "regex": {
-              "pattern": "(.*?)\\/",
-              "flags": "g"
-            },
-            "trim": true
-          }
-        },
         {
           "name": "kebabcasify"
         },
@@ -129,23 +88,6 @@
               "js2svg": {
                 "pretty": true
               }
-            }
-          }
-        },
-        {
-          "name": "name-assets-files-by-pattern",
-          "options": {
-            "pattern": "{{name}}.jsx"
-          }
-        },
-        {
-          "name": "svg-to-jsx",
-          "options": {
-            "prepend": "import React from 'react';",
-            "variableFormat": "camelCase",
-            "wrapper": {
-              "tag": "div",
-              "className": "icon-{{name}} icon"
             }
           }
         }
