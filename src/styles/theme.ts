@@ -1,6 +1,8 @@
 import { createTheme, InputBaseProps, TextFieldProps } from '@mui/material'
 import './_variables.css'
 
+import figmaTheme from '../../output/styles/theme'
+
 // TODO consider fallback and error handling
 const getCssVarByName = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim()
 
@@ -70,7 +72,7 @@ export const theme = createTheme({
     MuiFormHelperText: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
-          color: getCssVarByName('--textfield-main-grey'),
+          color: figmaTheme.colors.mainGrey,
           fontSize: getCssVarByName('--textfield-font-size-helper-text'),
           letterSpacing: getCssVarByName('--textfield-letter-spacing-helper-text'),
           lineHeight: getCssVarByName('--textfield-line-height-helper-text'),
